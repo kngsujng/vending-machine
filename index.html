@@ -14,7 +14,7 @@
     </header>
     <main>
       <div class="vendingMachine">
-        <section class="drinks">
+        <section class="drinks machine_top">
           <ul class="coke_list">
             <li class="coke_item">
               <button class="btn_cokeItem">
@@ -59,15 +59,22 @@
               </button>
             </li>
           </ul>
-          <section class="buttons">
+          <section class="machine_bottom">
             <div class="Con-balance">
               잔액 : <span class="balance">1,000</span>원
             </div>
-            <button class="btn_return">거스름돈 반환</button>
-            <input type="text" placeholder="입금액 입력" required />
-            <button class="btn_deposit">입금</button>
-            <div class="div_getCola">획득한 음료 창고</div>
-            <button class="btn_get">획득</button>
+            <input
+              type="text"
+              placeholder="입금액 입력"
+              required
+              class="inp_deposit"
+            />
+            <div class="div_getCola" class="blind">획득한 음료 창고</div>
+            <div class="Con-button">
+              <button class="btn_return">거스름돈 반환</button>
+              <button class="btn_deposit">입금</button>
+              <button class="btn_get">획득</button>
+            </div>
           </section>
         </section>
       </div>

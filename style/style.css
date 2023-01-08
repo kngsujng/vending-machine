@@ -5,7 +5,7 @@
   --btnText: 13px;
   --mainText: 14px;
   --active-btn-color: #6327fe;
-  --btn-color: #bdbdbd;
+  --sub-color: #bdbdbd;
 }
 
 /* 웹접근성을 고려한 컨텐츠 숨기기 */
@@ -80,11 +80,19 @@ body {
 
 /* Con-balance */
 .machine_bottom {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
-  gap: 12px;
 }
+
+/* Con-nonButton */
+.Con-nonButton {
+  display: flex;
+  flex-direction: column;
+}
+
 .Con-balance {
+  width: 200px;
   display: inline-block;
   padding: 6px 10px;
   border-radius: 5px;
@@ -97,23 +105,31 @@ body {
 }
 
 .inp_deposit {
+  width: 200px;
   margin: 11px 12px 11px 0;
   padding: 6px 0 8px 6px;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .Con-button {
-  position: absolute;
-  right: 0;
   display: flex;
   flex-direction: column;
+  gap: 11px;
 }
 
-.btn_return {
-  padding: 6px auto 8px;
-  border: 1px solid var(--btn-color);
+.btn_return,
+.btn_deposit {
+  padding: 6px 9px 8px 10px;
+  border: 1px solid var(--sub-color);
   border-radius: 5px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  float: right;
+}
+.btn_get {
+  padding: 43px 35px 44px;
+  background-color: var(--active-btn-color);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }

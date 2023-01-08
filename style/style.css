@@ -39,10 +39,10 @@ body {
 /* main */
 /* vendingMachine */
 .vendingMachine {
-  margin: 0 auto;
-}
-.drinks {
   margin: 43px auto 171px;
+}
+.drinks,
+.machine_bottom {
   padding: 31px 27px 28px;
   background-color: #fff;
   width: 360px;
@@ -82,7 +82,7 @@ body {
 .machine_bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  padding-top: 0;
 }
 
 /* Con-nonButton */
@@ -111,7 +111,9 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
-
+.div_getCola {
+}
+/* Con-button */
 .Con-button {
   display: flex;
   flex-direction: column;

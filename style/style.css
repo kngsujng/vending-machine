@@ -37,9 +37,16 @@ body {
 }
 
 /* main */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 43px auto 171px;
+}
+
 /* vendingMachine */
 .vendingMachine {
-  margin: 43px auto 171px;
+  display: inline-block;
 }
 .drinks,
 .machine_bottom {
@@ -81,7 +88,6 @@ body {
 /* Con-balance */
 .machine_bottom {
   display: flex;
-  justify-content: space-between;
   padding-top: 0;
 }
 
@@ -91,17 +97,25 @@ body {
   flex-direction: column;
 }
 
-.Con-balance {
+.Con-balance,
+.Con-fund {
+  display: flex;
+  align-items: center;
   width: 200px;
-  display: inline-block;
+  height: 33px;
   padding: 6px 10px;
   border-radius: 5px;
   background-color: var(--bg-color);
   font-size: var(--mainText);
 }
 
-.Con-balance > span {
-  padding-left: 79px;
+.Con-balance > span,
+.Con-fund > span {
+  margin-left: auto;
+}
+.Con-gotCokeList.preview {
+  width: 200px;
+  min-height: 106px;
 }
 
 .inp_deposit {
@@ -111,8 +125,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
-.div_getCola {
-}
+
 /* Con-button */
 .Con-button {
   display: flex;
@@ -134,4 +147,77 @@ body {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Non-vendingMachine */
+.Non-vendingMachine {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Wrap-fund  */
+.Wrap-fund {
+  width: 360px;
+  padding: 9px 27px;
+  background-color: #fff;
+}
+
+.Con-fund {
+  width: 306px;
+}
+
+/* Con_gotCoke */
+.Con_gotCoke {
+  background-color: #fff;
+  width: 360px;
+  padding: 32px 27px;
+  text-align: center;
+}
+
+.Tit-gotCoke {
+  font-size: var(--mainText);
+  margin-bottom: 13px;
+}
+
+.Con-gotCokeList {
+  min-height: 393px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.gotCoke_list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+}
+
+.gotCoke_item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.gotCoke_item > img {
+  width: 18px;
+  height: 33px;
+}
+
+.gotCoke_item > span {
+  margin-left: 11px;
+  font-size: var(--subText);
+}
+.gotCoke_count {
+  margin-left: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  vertical-align: bottom;
+  padding: 8px;
 }

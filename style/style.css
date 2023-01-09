@@ -8,6 +8,9 @@
   --sub-color: #bdbdbd;
 }
 
+/* 폰트 설정 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap");
+
 /* 웹접근성을 고려한 컨텐츠 숨기기 */
 .blind {
   border: 0;
@@ -24,6 +27,7 @@
 
 body {
   background-color: var(--bg-color);
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* header */
@@ -147,6 +151,7 @@ main {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 /* Non-vendingMachine */
@@ -165,6 +170,7 @@ main {
 
 .Con-fund {
   width: 306px;
+  font-weight: 700;
 }
 
 /* Con_gotCoke */
@@ -176,8 +182,9 @@ main {
 }
 
 .Tit-gotCoke {
-  font-size: var(--mainText);
   margin-bottom: 13px;
+  font-size: var(--mainText);
+  font-weight: 700;
 }
 
 .Con-gotCokeList {

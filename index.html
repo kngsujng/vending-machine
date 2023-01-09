@@ -12,7 +12,9 @@
     <header class="header_logoImg">
       <img src="src/img/Logo_img.png" alt="코카콜라 로고 이미지" />
     </header>
+
     <main>
+      <!-- 벤딩머신 -->
       <div class="vendingMachine">
         <section class="drinks machine_top">
           <ul class="coke_list">
@@ -71,18 +73,58 @@
               required
               class="inp_deposit"
             />
-            <div class="div_getCola">
-              <h2 class="blind">획득한 음료 창고</h2>
+            <div class="div_gotCola">
+              <h2 class="blind Tit-gotCoke">획득한 음료 리스트</h2>
+              <section class="Con-gotCokeList">
+                <ul class="gotCoke_list">
+                  <li class="gotCoke_item">
+                    <img
+                      src="src/img/red_coke.png"
+                      alt="획득한 음료 중 오리지널 콜라"
+                    />
+                    <span>Original_Cola</span>
+                    <div class="gotCoke_count">
+                      <h3 class="Tit-gotCoke_count blind">
+                        획득한 음료 중 오리지널 콜라 개수
+                      </h3>
+                      1
+                    </div>
+                  </li>
+                </ul>
+              </section>
             </div>
           </div>
-
           <div class="Con-button">
             <button class="btn_return">거스름돈 반환</button>
             <button class="btn_deposit">입금</button>
             <button class="btn_get">획득</button>
           </div>
         </section>
-        <div class="inMyPocket">소지금 : <span class="">25,000</span>원</div>
+      </div>
+
+      <!-- 소지금 -->
+      <div class="Con-fund">소지금 : <span class="fund">25,000</span>원</div>
+
+      <!-- 획득한 음료 -->
+      <div class="div_gotCoke">
+        <h2 class="Tit-gotCoke">획득한 음료</h2>
+        <section class="Con-gotCokeList">
+          <ul class="gotCoke_list">
+            <li class="gotCoke_item">
+              <img
+                src="src/img/red_coke.png"
+                alt="획득한 음료 중 오리지널 콜라"
+              />
+              <span>Original_Cola</span>
+              <div class="gotCoke_count">
+                <h3 class="Tit-gotCoke_count blind">
+                  획득한 음료 중 오리지널 콜라 개수
+                </h3>
+                1
+              </div>
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
   </body>

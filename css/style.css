@@ -51,6 +51,7 @@ main {
 /* vendingMachine */
 .vendingMachine {
   display: inline-block;
+  height: 545px;
 }
 .drinks,
 .machine_bottom {
@@ -116,10 +117,6 @@ main {
 .Con-balance > span,
 .Con-fund > span {
   margin-left: auto;
-}
-.Con-gotCokeList.preview {
-  width: 200px;
-  min-height: 106px;
 }
 
 .inp_deposit {
@@ -188,10 +185,11 @@ main {
 }
 
 .Con-gotCokeList {
-  min-height: 393px;
+  height: 393px;
   background-color: var(--bg-color);
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .gotCoke_list {
@@ -208,6 +206,11 @@ main {
   border-radius: 5px;
   background-color: #fff;
   text-align: center;
+}
+
+.preview {
+  width: 200px;
+  height: 106px;
 }
 
 .gotCoke_item > img {

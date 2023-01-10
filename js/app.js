@@ -1,4 +1,4 @@
-const btnCokeItem = document.querySelector(".btn_cokeItem");
+const btnCokeItems = document.querySelectorAll(".btn_cokeItem");
 const btnDeposit = document.querySelector(".btn_deposit");
 const txtFund = document.querySelector(".fund");
 const txtBalance = document.querySelector(".balance");
@@ -31,6 +31,18 @@ function deposit(event) {
     alert("올바른 금액을 입금해주세요🤢");
     inpDeposit.value = "";
   }
+}
+
+for (let i = 0; i < btnCokeItems.length; i++) {
+  btnCokeItems[i].addEventListener("mouseenter", function () {
+    btnCokeItems[i].classList.add("active");
+  });
+}
+
+for (let i = 0; i < btnCokeItems.length; i++) {
+  btnCokeItems[i].addEventListener("mouseleave", function () {
+    btnCokeItems[i].classList.remove("active");
+  });
 }
 
 btnDeposit.addEventListener("click", deposit);

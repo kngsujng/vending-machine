@@ -70,13 +70,14 @@
           </h2>
           <div class="Con-nonButton">
             <div class="Con-balance">
-              잔액 : <span class="balance">1,000</span>원
+              잔액 : <span class="balance">0</span>원
             </div>
             <input
-              type="text"
+              type="number"
               placeholder="입금액 입력"
               required
               class="inp_deposit"
+              min="0"
             />
             <section class="Con-gotCokeList preview">
               <h3 class="blind Tit-gotCoke">획득한 음료 리스트</h3>
@@ -108,9 +109,7 @@
       <div class="Non-vendingMachine">
         <!-- 소지금 -->
         <div class="Wrap-fund">
-          <div class="Con-fund">
-            소지금 : <span class="fund">25,000</span>원
-          </div>
+          <div class="Con-fund">소지금 : <span class="fund">50000</span>원</div>
         </div>
 
         <!-- 획득한 음료 -->

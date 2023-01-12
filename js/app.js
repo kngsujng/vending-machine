@@ -1,8 +1,12 @@
+import cokeData from "./item.js";
+
 const btnCokeItems = document.querySelectorAll(".btn_cokeItem");
+const btnCokeItem = document.querySelector(".btn_cokeItem");
 const btnDeposit = document.querySelector(".btn_deposit");
 const btnReturn = document.querySelector(".btn_return");
 const txtFund = document.querySelector(".fund");
 const txtBalance = document.querySelector(".balance");
+const gotCokeList = document.querySelector(".gotCoke_list");
 
 // 입금액을 input창에 입력하고 입금 버튼을 누르면
 // 1. 로컬스토리지에 저장
@@ -39,7 +43,6 @@ btnDeposit.addEventListener("click", deposit);
 for (let i = 0; i < btnCokeItems.length; i++) {
   btnCokeItems[i].addEventListener("mouseenter", function () {
     btnCokeItems[i].classList.add("active");
-    console.log("들어왔다!");
   });
 }
 for (let i = 0; i < btnCokeItems.length; i++) {
@@ -73,3 +76,38 @@ function returnChange(e) {
   txtBalance.textContent = "";
 }
 btnReturn.addEventListener("click", returnChange);
+
+// 빨간 음료만 해당된다 ㅠㅠ
+let clickCount = 0;
+const li = document.createElement("li");
+const img = document.createElement("img");
+const gotCokeName = document.createElement("span");
+const gotCokeCount = document.createElement("div");
+const ir_gotCokeCount = document.createElement("p");
+
+li.classList.add("gotCoke_item");
+img.setAttribute("src", `${cokeData[0].img}`);
+img.setAttribute("alt", "획득한 음료 중 오리지널 콜라");
+gotCokeName.textContent = cokeData[0].name;
+gotCokeCount.classList.add("gotCoke_count");
+ir_gotCokeCount.classList.add("blind");
+ir_gotCokeCount.textContent = "획득한 음료 중 오리지널 콜라 개수";
+gotCokeCount.textContent = `${clickCount}`;
+
+gotCokeCount.appendChild(ir_gotCokeCount);
+li.appendChild(img);
+li.appendChild(gotCokeName);
+li.appendChild(gotCokeCount);
+
+function addCoke(e) {
+  e.preventDefault();
+  clickCount += 1;
+  gotCokeCount.textContent = `${clickCount}`;
+  if (gotCokeList.hasChildNodes() === false) {
+    gotCokeList.appendChild(li);
+  } else {
+    console.log("이미 preview에 들어있지롱!");
+  }
+}
+
+btnCokeItem.addEventListener("click", addCoke);

@@ -134,3 +134,13 @@ button {
   background-color: transparent;
   border: none;
 }
+
+/* 변수 설정 */
+:root {
+  --bg-color: #eae8fe;
+  --subText: 9px;
+  --btnText: 13px;
+  --mainText: 14px;
+  --active-btn-color: #6327fe;
+  --sub-color: #bdbdbd;
+}

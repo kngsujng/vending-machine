@@ -14,6 +14,7 @@ const gotCokeList = document.querySelector(".gotCoke_list");
 // 3. 잔액 증가
 
 function deposit(event) {
+  event.preventDefault();
   const inpDeposit = document.querySelector(".inp_deposit");
 
   if (Number.isInteger(+inpDeposit.value)) {

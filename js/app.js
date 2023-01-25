@@ -1,4 +1,4 @@
-import cokeData from "./item.js";
+import coke from "./item.js";
 
 const btnCokeItems = document.querySelectorAll(".btn_cokeItem");
 const btnCokeItem = document.querySelector(".btn_cokeItem");
@@ -8,11 +8,19 @@ const txtFund = document.querySelector(".fund");
 const txtBalance = document.querySelector(".balance");
 const gotCokeList = document.querySelector(".gotCoke_list");
 
+const state = {
+  coke: coke,
+  selectedList: [],
+  gotCoke: [],
+  balance: 0,
+  fund: 0,
+  total: 0,
+};
+
 // 입금액을 input창에 입력하고 입금 버튼을 누르면
 // 1. 로컬스토리지에 저장
 // 2. 소지금에서 차감
 // 3. 잔액 증가
-
 function deposit(event) {
   event.preventDefault();
   const inpDeposit = document.querySelector(".inp_deposit");
@@ -27,10 +35,10 @@ function deposit(event) {
     } else {
       txtFund.textContent =
         parseInt(txtFund.textContent) - parseInt(inpDeposit.value);
-      localStorage.setItem("fund", txtFund.textContent);
+      // localStorage.setItem("fund", txtFund.textContent);
       txtBalance.textContent =
         parseInt(txtBalance.textContent) + parseInt(inpDeposit.value);
-      localStorage.setItem("balance", txtBalance.textContent);
+      // localStorage.setItem("balance", txtBalance.textContent);
       inpDeposit.value = "";
     }
   } else {
@@ -47,7 +55,6 @@ btnDeposit.addEventListener("click", deposit);
 // 2-1. 이미 있으면 개수 바꿔주기
 // 2-2. 없으면 들어가기
 // 3. dummy데이터의 quantity가 0으로 되면 품절 띄워주기
-
 for (let i = 0; i < btnCokeItems.length; i++) {
   btnCokeItems[i].addEventListener("click", function () {
     if (+txtBalance.textContent < 1000) {
@@ -59,9 +66,13 @@ for (let i = 0; i < btnCokeItems.length; i++) {
   });
 }
 
-// 거스름돈반환 버튼 누르면 : 잔액 0으로 감소
+// 거스름돈반환 버튼 누르면
+// 1. 잔액 0으로 감소
+// 2. 잔액 금액 -> 소지금 금액에 합쳐진다.
 function returnChange(e) {
   e.preventDefault();
+  txtFund.textContent =
+    parseInt(txtFund.textContent) + parseInt(txtBalance.textContent);
   txtBalance.textContent = "";
 }
 btnReturn.addEventListener("click", returnChange);

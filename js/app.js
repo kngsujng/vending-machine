@@ -212,3 +212,6 @@ function showUserCoke() {
 
 btnGet.addEventListener("click", getUserCoke);
 btnGet.addEventListener("click", returnChange);
+btnGet.addEventListener("click", () => {
+  btnGet.disabled = true;
+});

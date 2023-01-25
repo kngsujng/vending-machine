@@ -215,3 +215,9 @@ btnGet.addEventListener("click", returnChange);
 btnGet.addEventListener("click", () => {
   btnGet.disabled = true;
 });
+btnReturn.addEventListener("click", () => {
+  btnReturn.disabled = true;
+});
+btnDeposit.addEventListener("click", () => {
+  btnDeposit.disabled = true;
+});

@@ -20,7 +20,7 @@
 ## 3. UI
 |**PC 버전**|**모바일 버전**|
 |:-:|:-:|
-|<img width='600px' src='https://user-images.githubusercontent.com/110231276/214632792-a1644e2a-0981-4135-957e-9eec52a708ee.gif' />|<img width='300px' src='https://user-images.githubusercontent.com/110231276/214634168-2cf93c3a-a742-4cb6-83e7-5ea1ef1fe2bd.gif' />|
+|<img width='500px' src='https://user-images.githubusercontent.com/110231276/214639149-f92ccaab-cf21-4213-942d-f1abd05839f3.gif' />|<img width='300px' src='https://user-images.githubusercontent.com/110231276/214634168-2cf93c3a-a742-4cb6-83e7-5ea1ef1fe2bd.gif' />|
 <br />
 
 ## 4. 기능 
@@ -36,7 +36,6 @@
 - 획득
     - 잔액이 소지금으로 들어간다.
     - 장바구니에 있는 목록은 초기화된다.
-
 
 
 

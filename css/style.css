@@ -198,6 +198,7 @@ main {
   overflow-y: auto;
 }
 
+.gotCoke_list_preview,
 .gotCoke_list {
   display: flex;
   flex-direction: column;
@@ -214,9 +215,13 @@ main {
   text-align: center;
 }
 
-.preview {
+.Con-gotCokeList_preview {
   width: 200px;
   height: 106px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .gotCoke_item > img {

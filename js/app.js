@@ -14,7 +14,6 @@ const state = {
   gotCoke: [],
   balance: 0,
   fund: 0,
-  total: 0,
 };
 
 // 입금액을 input창에 입력하고 입금 버튼을 누르면
@@ -48,13 +47,7 @@ function deposit(event) {
 }
 btnDeposit.addEventListener("click", deposit);
 
-// btnCokeitem 누르면
-// 0. 잔액보다 적으면 alert창 띄워주기
-// 1. 잔액 감소
-// 2. preview 수정
-// 2-1. 이미 있으면 개수 바꿔주기
-// 2-2. 없으면 들어가기
-// 3. dummy데이터의 quantity가 0으로 되면 품절 띄워주기
+// 잔액이 부족할 때 경고창 띄우기
 for (let i = 0; i < btnCokeItems.length; i++) {
   btnCokeItems[i].addEventListener("click", function () {
     if (+txtBalance.textContent < 1000) {
@@ -77,37 +70,95 @@ function returnChange(e) {
 }
 btnReturn.addEventListener("click", returnChange);
 
-// 빨간 음료만 해당된다 ㅠㅠ
-let clickCount = 0;
-const li = document.createElement("li");
-const img = document.createElement("img");
-const gotCokeName = document.createElement("span");
-const gotCokeCount = document.createElement("div");
-const ir_gotCokeCount = document.createElement("p");
+// 음료 데이터 렌더링
+function createCokeItems(cokes) {
+  const ul = document.querySelector(".coke_list");
+  const button = document.createElement("button");
 
-li.classList.add("gotCoke_item");
-img.setAttribute("src", `${cokeData[0].img}`);
-img.setAttribute("alt", "획득한 음료 중 오리지널 콜라");
-gotCokeName.textContent = cokeData[0].name;
-gotCokeCount.classList.add("gotCoke_count");
-ir_gotCokeCount.classList.add("blind");
-ir_gotCokeCount.textContent = "획득한 음료 중 오리지널 콜라 개수";
-gotCokeCount.textContent = `${clickCount}`;
+  cokes.forEach((coke) => {
+    button.classList.add("btn_cokeItem");
 
-gotCokeCount.appendChild(ir_gotCokeCount);
-li.appendChild(img);
-li.appendChild(gotCokeName);
-li.appendChild(gotCokeCount);
+    const li = document.querySelector(".coke_item");
 
-function addCoke(e) {
-  e.preventDefault();
-  clickCount += 1;
-  gotCokeCount.textContent = `${clickCount}`;
-  if (gotCokeList.hasChildNodes() === false) {
-    gotCokeList.appendChild(li);
-  } else {
-    console.log("이미 preview에 들어있지롱!");
-  }
+    li.appendChild(btnCokeItem);
+
+    if (!coke.quantity) {
+      const soldout = document.createElement("div");
+      const soldoutImg = document.createElement("img");
+
+      li.classList.add("soldout");
+      li.classList.add("no_event");
+
+      soldout.classList.add("bg_soldout");
+      soldoutImg.classList.add("img_soldout");
+      soldoutImg.src = "img/soldOut.png";
+      btnCokeItem.disabled = true;
+      btnCokeItem.hover = false;
+
+      soldout.appendChild(soldoutImg);
+      btnCokeItem.appendChild(soldout);
+    }
+
+    btnCokeItem.addEventListener("click", () => {
+      if (coke.quantity) decreaseQuantity(coke.id);
+    });
+  });
 }
 
-btnCokeItem.addEventListener("click", addCoke);
+// 음료 개수 감수
+function decreaseQuantity(id) {
+  const selectedItem = state.coke.find((v) => v.id === id);
+  selectedItem.quantity -= 1;
+
+  createCokeItems(state.coke);
+  addSelectedItems(selectedItem);
+}
+
+// 선택한 음료 추가
+function addSelectedItems(item) {
+  const itemFound = state.selectedList.find((el) => el.id === item.id);
+
+  if (itemFound) {
+    itemFound.quantity += 1;
+  } else {
+    state.selectedList.push({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      img: item.item,
+      quantity: 1,
+    });
+  }
+
+  showSelectedItems();
+}
+
+// 선택한 음료 보여주기
+function showSelectedItems() {
+  gotCokeList.innerHTML = "";
+
+  state.selectedList.forEach((item) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    const gotCokeName = document.createElement("span");
+    const gotCokeCount = document.createElement("div");
+    const ir_gotCokeCount = document.createElement("p");
+
+    li.classList.add("gotCoke_item");
+    gotCokeCount.classList.add("gotCoke_count");
+    ir_gotCokeCount.classList.add("blind");
+
+    img.src = `${item.img}`;
+    gotCokeName.textContent = item.name;
+    gotCokeCount.textContent = item.quantity;
+    ir_gotCokeCount.textContent = "획득한 음료 개수";
+
+    gotCokeCount.appendChild(ir_gotCokeCount);
+    li.appendChild(img);
+    li.appendChild(gotCokeName);
+    li.appendChild(gotCokeCount);
+    gotCokeList.appendChild(li);
+  });
+}
+
+createCokeItems(state.coke);

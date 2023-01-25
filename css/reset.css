@@ -153,3 +153,8 @@ button {
   position: absolute;
   white-space: nowrap;
 }
+
+/* 마우스 이벤트 막기 */
+.no_event {
+  pointer-events: none;
+}

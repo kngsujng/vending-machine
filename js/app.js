@@ -40,18 +40,6 @@ function deposit(event) {
 }
 btnDeposit.addEventListener("click", deposit);
 
-// 음료버튼 위에 마우스오버하면 active, 마우스리브하면 active 해제
-for (let i = 0; i < btnCokeItems.length; i++) {
-  btnCokeItems[i].addEventListener("mouseenter", function () {
-    btnCokeItems[i].classList.add("active");
-  });
-}
-for (let i = 0; i < btnCokeItems.length; i++) {
-  btnCokeItems[i].addEventListener("mouseleave", function () {
-    btnCokeItems[i].classList.remove("active");
-  });
-}
-
 // btnCokeitem 누르면
 // 0. 잔액보다 적으면 alert창 띄워주기
 // 1. 잔액 감소

@@ -12,17 +12,13 @@ const btnReturn = document.querySelector(".btn_return");
 const btnDeposit = document.querySelector(".btn_deposit");
 const btnGet = document.querySelector(".btn_get");
 const txtBalance = document.querySelector(".balance");
-const txtFund = document.querySelector(".fund"); //5만원 소지금 고정
+const txtFund = document.querySelector(".fund");
 const inpDeposit = document.querySelector(".inp_deposit");
 const ulSelected = document.querySelector(
   ".Con-gotCokeList_preview .gotCoke_list"
 );
 const ulGotcoke = document.querySelector(".Con-gotCokeList .gotCoke_list");
 
-// 입금액을 input창에 입력하고 입금 버튼을 누르면
-// 1. 로컬스토리지에 저장
-// 2. 소지금에서 차감
-// 3. 잔액 증가
 function deposit(event) {
   event.preventDefault();
   const inpDeposit = document.querySelector(".inp_deposit");
@@ -48,9 +44,6 @@ function deposit(event) {
 }
 btnDeposit.addEventListener("click", deposit);
 
-// 거스름돈반환 버튼 누르면
-// 1. 잔액 0으로 감소
-// 2. 잔액 금액 -> 소지금 금액에 합쳐진다.
 function returnChange(e) {
   e.preventDefault();
   txtFund.textContent =
@@ -166,8 +159,6 @@ createCokeItems(state.coke);
 
 // 획득버튼 눌렀을 때
 function getUserCoke() {
-  // if (!state.balance || !state.selectedList.length) return;
-
   state.selectedList.forEach((item) => {
     const itemAlready = state.gotCoke.find((v) => v.id === item.id);
 
@@ -214,10 +205,6 @@ btnGet.addEventListener("click", getUserCoke);
 btnGet.addEventListener("click", returnChange);
 btnGet.addEventListener("click", () => {
   btnGet.disabled = true;
-});
-btnReturn.addEventListener("click", () => {
   btnReturn.disabled = true;
-});
-btnDeposit.addEventListener("click", () => {
   btnDeposit.disabled = true;
 });

@@ -142,6 +142,11 @@ main {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
+.btn_return:disabled,
+.btn_deposit:disabled {
+  color: inherit;
+}
+
 .btn_get {
   padding: 43px 35px 44px;
   background-color: var(--active-btn-color);
